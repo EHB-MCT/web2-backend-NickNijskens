@@ -95,7 +95,7 @@ router
     try{
       collection = db.collection("Cocktails");
       let id = new ObjectID(req.params.id);
-      await collection.deleteOne({_id : id});
+      collection.deleteOne({_id : id});
       res.send('deleted');
     }
     catch(err){
@@ -150,7 +150,7 @@ router
     collection = db.collection("Drinks");
     let id = new ObjectID(req.params.id);
     let newStock = req.body.value;
-    let result = await collection.updateOne({_id : id}, 
+    collection.updateOne({_id : id}, 
       {$set : {"stock" : newStock}});
       res.send('updated');
   }
@@ -161,7 +161,7 @@ router
     try{
       collection = db.collection("Drinks");
       let id = new ObjectID(req.params.id);
-      await collection.deleteOne({_id : id})
+      collection.deleteOne({_id : id})
       res.send('deleted');
     }
     catch(err){
