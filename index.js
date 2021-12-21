@@ -96,7 +96,7 @@ router
       collection = db.collection("Cocktails");
       let id = new ObjectID(req.params.id);
       await collection.deleteOne({_id : id});
-      res.json("deleted");
+      res.send("deleted");
     }
     catch(err){
       return err;
@@ -162,7 +162,7 @@ router
       collection = db.collection("Drinks");
       let id = new ObjectID(req.params.id);
       await collection.deleteOne({_id : id})
-      res.json("deleted");
+      res.send("deleted");
     }
     catch(err){
       return err;
